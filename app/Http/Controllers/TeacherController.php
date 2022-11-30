@@ -10,7 +10,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teacher = Teacher::with(['courses'])->get();
+        $teacher = Teacher::with(['courses'])->orderBy('first_surname', 'asc')->get();
 
         return $this->getResponse200($teacher);
     }
